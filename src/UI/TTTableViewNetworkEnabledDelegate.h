@@ -15,6 +15,7 @@
 //
 
 #import "TTTableViewVarHeightDelegate.h"
+#import "TTTableFooterInfiniteScrollView.h"
 
 @class TTTableHeaderDragRefreshView, TTTableFooterInfiniteScrollView;
 @protocol TTModel, TTTableNetworkEnabledTableViewController;

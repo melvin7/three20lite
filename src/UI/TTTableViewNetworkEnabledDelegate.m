@@ -18,7 +18,6 @@
 
 // UI
 #import "TTTableHeaderDragRefreshView.h"
-#import "TTTableFooterInfiniteScrollView.h"
 #import "TTTableViewController.h"
 #import "UIViewAdditions.h"
 

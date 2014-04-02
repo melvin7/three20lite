@@ -19,9 +19,6 @@
 // Core
 #import "TTCorePreprocessorMacros.h"
 
-// UINavigator
-#import "TTGlobalNavigatorMetrics.h"
-
 // UICommon
 #import "TTGlobalUICommon.h"
 
@@ -232,14 +229,14 @@ TT_FIX_CATEGORY_BUG(UIViewAdditions)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (CGFloat)orientationWidth {
-  return UIInterfaceOrientationIsLandscape(TTInterfaceOrientation())
+  return UIInterfaceOrientationIsLandscape(TTDeviceOrientation())
     ? self.height : self.width;
 }
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (CGFloat)orientationHeight {
-  return UIInterfaceOrientationIsLandscape(TTInterfaceOrientation())
+  return UIInterfaceOrientationIsLandscape(TTDeviceOrientation())
     ? self.width : self.height;
 }
 

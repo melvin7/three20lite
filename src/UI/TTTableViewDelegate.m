@@ -21,7 +21,6 @@
 #import "TTTableViewController.h"
 #import "TTTableHeaderView.h"
 #import "TTTableView.h"
-#import "TTStyledTextLabel.h"
 
 // - Table Items
 #import "TTTableItem.h"
@@ -212,12 +211,6 @@ static const NSUInteger kFirstTableSection = 0;
   [TTURLRequestQueue mainQueue].suspended = NO;
 
   [_controller didBeginDragging];
-
-  if ([scrollView isKindOfClass:[TTTableView class]]) {
-    TTTableView* tableView = (TTTableView*)scrollView;
-    tableView.highlightedLabel.highlightedNode = nil;
-    tableView.highlightedLabel = nil;
-  }
 }
 
 

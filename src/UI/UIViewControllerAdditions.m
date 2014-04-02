@@ -68,7 +68,7 @@ TT_FIX_CATEGORY_BUG(UIViewControllerAdditions)
     return [self presentingViewController];
 
   } else {
-    NSString* key = [NSString stringWithFormat:@"%d", self.hash];
+    NSString* key = [NSString stringWithFormat:@"%lu", (unsigned long)self.hash];
     return [gSuperControllers objectForKey:key];
   }
 }
@@ -76,7 +76,7 @@ TT_FIX_CATEGORY_BUG(UIViewControllerAdditions)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)setSuperController:(UIViewController*)viewController {
-  NSString* key = [NSString stringWithFormat:@"%d", self.hash];
+  NSString* key = [NSString stringWithFormat:@"%lu", (unsigned long)self.hash];
   if (nil != viewController) {
     if (nil == gSuperControllers) {
       gSuperControllers = TTCreateNonRetainingDictionary();
@@ -110,7 +110,7 @@ TT_FIX_CATEGORY_BUG(UIViewControllerAdditions)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (UIViewController*)popupViewController {
-  NSString* key = [NSString stringWithFormat:@"%d", self.hash];
+  NSString* key = [NSString stringWithFormat:@"%lu", (unsigned long)self.hash];
   return [gPopupViewControllers objectForKey:key];
 }
 
@@ -205,7 +205,7 @@ TT_FIX_CATEGORY_BUG(UIViewControllerAdditions)
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)dismissModalViewController {
-  [self dismissModalViewControllerAnimated:YES];
+  [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 

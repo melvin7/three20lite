@@ -16,28 +16,18 @@
 
 #import "TTTableViewDataSource.h"
 
-// UI
-#import "TTTextEditor.h"
 
 // - Table Items
 #import "TTTableItem.h"
 #import "TTTableMoreButton.h"
-#import "TTTableSubtextItem.h"
-#import "TTTableRightCaptionItem.h"
 #import "TTTableCaptionItem.h"
 #import "TTTableSubtitleItem.h"
-#import "TTTableMessageItem.h"
-#import "TTTableImageItem.h"
-#import "TTTableStyledTextItem.h"
 #import "TTTableTextItem.h"
-#import "TTTableActivityItem.h"
 #import "TTTableControlItem.h"
 #import "TTTableSettingsItem.h"
 
 // - Table Cells
 #import "TTTableControlCell.h"
-#import "TTStyledTextTableCell.h"
-#import "TTTableFlushViewCell.h"
 
 // Style
 #import "TTStyledText.h"
@@ -236,17 +226,11 @@
   if ([object isKindOfClass:[TTTableItem class]]) {
     return [object cellClass];
 
-  } else if ([object isKindOfClass:[TTStyledText class]]) {
-    return [TTStyledTextTableCell class];
-
-  } else if ([object isKindOfClass:[UIControl class]]
-             || [object isKindOfClass:[UITextView class]]
-             || [object isKindOfClass:[TTTextEditor class]]) {
+  }  else if ([object isKindOfClass:[UIControl class]]
+             || [object isKindOfClass:[UITextView class]]) {
     return [TTTableControlCell class];
 
-  } else if ([object isKindOfClass:[UIView class]]) {
-    return [TTTableFlushViewCell class];
-  }
+  } 
 
   // This will display an empty white table cell - probably not what you want, but it
   // is better than crashing, which is what happens if you return nil here

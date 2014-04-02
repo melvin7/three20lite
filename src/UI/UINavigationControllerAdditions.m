@@ -19,9 +19,6 @@
 // Core
 #import "TTCorePreprocessorMacros.h"
 
-// UI
-#import "TTNavigationController.h"
-
 // UICommon
 #import "TTGlobalUICommon.h"
 #import "UIViewControllerAdditions.h"

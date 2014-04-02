@@ -18,14 +18,10 @@
 
 // Network
 #import "TTErrorCodes.h"
-#import "SBJson.h"
 
 // Core
 #import "TTCorePreprocessorMacros.h"
 #import "TTDebug.h"
-
-// Vendor
-#import "NSObject+SBJSON.h"
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -62,8 +58,11 @@
     NSString* json = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
     // When there are newline characters in the JSON string, 
     // the error "Unescaped control character '0x9'" will be thrown. This removes those characters.
-    json =  [json stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]]; 
-    _rootObject = [[json JSONValue] retain];
+    json =  [json stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+      
+    _rootObject = [[NSJSONSerialization JSONObjectWithData:data
+                                                   options:NSJSONReadingMutableContainers
+                                                     error:&err] retain];
     if (!_rootObject) {
       err = [NSError errorWithDomain:kTTNetworkErrorDomain
                                 code:kTTNetworkErrorCodeInvalidJSON

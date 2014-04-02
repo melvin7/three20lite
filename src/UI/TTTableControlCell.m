@@ -18,7 +18,6 @@
 
 // UI
 #import "TTTableControlItem.h"
-#import "TTTextEditor.h"
 #import "UIViewAdditions.h"
 #import "UIFontAdditions.h"
 #import "TTButton.h"
@@ -76,8 +75,7 @@ static const CGFloat kControlPadding = 8.0f;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 + (BOOL)shouldSizeControlToFit:(UIView*)view {
-  return [view isKindOfClass:[UITextView class]]
-  || [view isKindOfClass:[TTTextEditor class]];
+  return [view isKindOfClass:[UITextView class]];
 }
 
 
@@ -112,12 +110,7 @@ static const CGFloat kControlPadding = 8.0f;
       CGFloat ttLineHeight = textView.font.ttLineHeight;
       height = ttLineHeight * kDefaultTextViewLines;
 
-    } else if ([view isKindOfClass:[TTTextEditor class]]) {
-      TTTextEditor* textEditor = (TTTextEditor*)view;
-      CGFloat ttLineHeight = textEditor.font.ttLineHeight;
-      height = ttLineHeight * kDefaultTextViewLines;
-
-    } else if ([view isKindOfClass:[UITextField class]]) {
+    }  else if ([view isKindOfClass:[UITextField class]]) {
       UITextField* textField = (UITextField*)view;
       CGFloat ttLineHeight = textField.font.ttLineHeight;
       height = ttLineHeight + kTableCellSmallMargin*2;

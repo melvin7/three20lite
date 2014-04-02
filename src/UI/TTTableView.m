@@ -17,7 +17,6 @@
 #import "TTTableView.h"
 
 // UI
-#import "TTStyledTextLabel.h"
 #import "UIViewAdditions.h"
 
 // UICommon
@@ -118,11 +117,6 @@ static const CGFloat kCancelHighlightThreshold = 4.0f;
   if ([self.delegate respondsToSelector:@selector(tableView:touchesEnded:withEvent:)]) {
     id<TTTableViewDelegate> delegate = (id<TTTableViewDelegate>)self.delegate;
     [delegate tableView:self touchesEnded:touches withEvent:event];
-  }
-
-  if (_highlightedLabel) {
-    TTStyledElement* element = _highlightedLabel.highlightedNode;
-    [element performDefaultAction];
   }
 }
 
@@ -322,22 +316,6 @@ static const CGFloat kCancelHighlightThreshold = 4.0f;
   } else {
     [_bottomShadow removeFromSuperlayer];
     TT_RELEASE_SAFELY(_bottomShadow);
-  }
-}
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////
-#pragma mark -
-#pragma mark Public
-
-
-///////////////////////////////////////////////////////////////////////////////////////////////////
-- (void)setHighlightedLabel:(TTStyledTextLabel*)label {
-  if (label != _highlightedLabel) {
-    _highlightedLabel.highlightedNode = nil;
-    [_highlightedLabel release];
-    _highlightedLabel = [label retain];
   }
 }
 

@@ -19,8 +19,6 @@
 // Network
 #import "TTModelDelegate.h"
 
-#import "TTSearchDisplayController.h"
-
 @protocol TTModel;
 
 /**
@@ -28,7 +26,6 @@
  */
 @interface TTModelViewController : UIViewController <TTModelDelegate> {
 @protected
-  TTSearchDisplayController* _searchController;
   NSDictionary*     _frozenState;
   
   BOOL _isViewAppearing;

@@ -19,8 +19,6 @@
 // Style
 #import "TTImageStyle.h"
 
-// UI
-#import "TTImageViewDelegate.h"
 
 // Network
 #import "TTURLImageResponse.h"

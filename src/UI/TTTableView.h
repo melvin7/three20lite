@@ -27,7 +27,6 @@
  * you want links in your labels to be touchable.
  */
 @interface TTTableView : UITableView {
-  TTStyledTextLabel*  _highlightedLabel;
   CGPoint             _highlightStartPoint;
   CGFloat             _contentOrigin;
 

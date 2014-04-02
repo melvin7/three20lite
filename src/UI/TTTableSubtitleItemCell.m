@@ -17,7 +17,6 @@
 #import "TTTableSubtitleItemCell.h"
 
 // UI
-#import "TTImageView.h"
 #import "TTTableSubtitleItem.h"
 #import "UIViewAdditions.h"
 #import "UIFontAdditions.h"
@@ -44,17 +43,17 @@
     self.textLabel.textColor = TTSTYLEVAR(textColor);
     self.textLabel.highlightedTextColor = TTSTYLEVAR(highlightedTextColor);
 	self.textLabel.backgroundColor = TTSTYLEVAR(backgroundTextColor);
-    self.textLabel.textAlignment = UITextAlignmentLeft;
-    self.textLabel.lineBreakMode = UILineBreakModeTailTruncation;
+    self.textLabel.textAlignment = NSTextAlignmentLeft;
+    self.textLabel.lineBreakMode = NSLineBreakByTruncatingTail;
     self.textLabel.adjustsFontSizeToFitWidth = YES;
 
     self.detailTextLabel.font = TTSTYLEVAR(font);
     self.detailTextLabel.textColor = TTSTYLEVAR(tableSubTextColor);
     self.detailTextLabel.highlightedTextColor = TTSTYLEVAR(highlightedTextColor);
 	self.detailTextLabel.backgroundColor = TTSTYLEVAR(backgroundTextColor);
-    self.detailTextLabel.textAlignment = UITextAlignmentLeft;
+    self.detailTextLabel.textAlignment = NSTextAlignmentLeft;
     self.detailTextLabel.contentMode = UIViewContentModeTop;
-    self.detailTextLabel.lineBreakMode = UILineBreakModeTailTruncation;
+    self.detailTextLabel.lineBreakMode = NSLineBreakByTruncatingTail;
     self.detailTextLabel.numberOfLines = kTableMessageTextLineCount;
   }
 
@@ -97,7 +96,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (void)prepareForReuse {
     [super prepareForReuse];
-    [_imageView2 unsetImage];
+    [_imageView2 setImage:nil];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -150,10 +149,9 @@
       self.detailTextLabel.text = item.subtitle;
     }
     if (item.defaultImage) {
-      self.imageView2.defaultImage = item.defaultImage;
+      self.imageView2.image = item.defaultImage;
     }
     if (item.imageURL) {
-      self.imageView2.urlPath = item.imageURL;
     }
   }
 }
@@ -172,9 +170,9 @@
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
-- (TTImageView*)imageView2 {
+- (UIImageView*)imageView2 {
   if (!_imageView2) {
-    _imageView2 = [[TTImageView alloc] init];
+    _imageView2 = [[UIImageView alloc] init];
     //    _imageView2.defaultImage = TTSTYLEVAR(personImageSmall);
     //    _imageView2.style = TTSTYLE(threadActorIcon);
     [self.contentView addSubview:_imageView2];

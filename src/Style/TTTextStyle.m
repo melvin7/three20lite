@@ -48,9 +48,9 @@
   if (self) {
     _shadowOffset = CGSizeZero;
     _numberOfLines = 1;
-    _textAlignment = UITextAlignmentCenter;
+    _textAlignment = NSTextAlignmentCenter;
     _verticalAlignment = UIControlContentVerticalAlignmentCenter;
-    _lineBreakMode = UILineBreakModeTailTruncation;
+    _lineBreakMode = NSLineBreakByTruncatingTail;
   }
 
   return self;
@@ -188,7 +188,7 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (CGRect)rectForText:(NSString*)text forSize:(CGSize)size withFont:(UIFont*)font {
   CGRect rect = CGRectZero;
-  if (_textAlignment == UITextAlignmentLeft
+  if (_textAlignment == NSTextAlignmentLeft
       && _verticalAlignment == UIControlContentVerticalAlignmentTop) {
     rect.size = size;
 
@@ -201,7 +201,7 @@
 
     rect.size = textSize;
 
-    if (_textAlignment == UITextAlignmentCenter) {
+    if (_textAlignment == NSTextAlignmentCenter) {
       rect.origin.x = round(size.width/2 - textSize.width/2);
 
     } else if (_textAlignment == UITextAlignmentRight) {

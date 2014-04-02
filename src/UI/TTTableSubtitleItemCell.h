@@ -17,13 +17,12 @@
 // UI
 #import "TTTableLinkedItemCell.h"
 
-@class TTImageView;
 
 @interface TTTableSubtitleItemCell : TTTableLinkedItemCell {
-  TTImageView* _imageView2;
+  UIImageView* _imageView2;
 }
 
 @property (nonatomic, readonly, retain) UILabel*      subtitleLabel;
-@property (nonatomic, readonly, retain) TTImageView*  imageView2;
+@property (nonatomic, readonly, retain) UIImageView*  imageView2;
 
 @end

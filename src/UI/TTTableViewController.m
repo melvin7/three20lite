@@ -17,7 +17,6 @@
 #import "TTTableViewController.h"
 
 // UI
-#import "TTActivityLabel.h"
 #import "TTErrorView.h"
 #import "TTListDataSource.h"
 #import "TTTableView.h"
@@ -424,12 +423,6 @@
       ? [_dataSource titleForLoading:NO]
       : [self defaultTitleForLoading];
       if (title.length) {
-        TTActivityLabel* label =
-          [[[TTActivityLabel alloc] initWithStyle:TTActivityLabelStyleWhiteBox]
-           autorelease];
-        label.text = title;
-        label.backgroundColor = _tableView.backgroundColor;
-        self.loadingView = label;
       }
     }
 
